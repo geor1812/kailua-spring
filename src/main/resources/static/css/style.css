@@ -1,15 +1,33 @@
 body {
     background-color: #141414;
     color: white;
-    padding: 0px
+    font-family: "Verdana", "Geneva", sans-serif;
+    font-size: 20px;
+    line-height: 1.6em;
+    margin 0;
 }
 
 .showcase {
     height: 200px;
     width: 1000px;
     background-image: url("showcase.jpg");
+    margin: auto;
+}
+
+.main-header {
+    text-align: center;
+    color: #E12121;
 }
 
 .container {
-    width: 60%;
+    width: 40%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.main-footer .container{
+    font-size: 15px;
+    width: 70%;
+    text-align: center;
+    color: #dbbdbd;
 }
