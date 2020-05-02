@@ -1,0 +1,99 @@
+body {
+
+    background-color: #141414;
+    color: white;
+    font-family: "Verdana", "Geneva", sans-serif;
+    font-size: 20px;
+    line-height: 1.6em;
+    margin 0;
+}
+.body-box {
+    width: 85%;
+    background-color: black;
+    margin: auto;
+}
+.showcase {
+    height: 200px;
+    width: 1000px;
+    background-image: url("showcase.jpg");
+    margin: auto;
+}
+
+.main-header {
+    text-align: center;
+    color: #E12121;
+}
+
+.container {
+    width: 40%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.main-footer .container{
+    margin-top: 15px;
+    font-size: 15px;
+    width: 70%;
+    text-align: center;
+    color: #dbbdbd;
+}
+
+.button-area {
+    box-shadow: 0 5px 0 darkred;
+    background-color: red;
+    height: 60px;
+    width: 230px;
+    margin: 30px auto;
+    text-align: center;
+    line-height: 60px;
+}
+
+.button-area:hover {
+    background-color: #A22227;
+}
+#link1 {
+    text-decoration: none;
+    color: white;
+    padding-top: 0.9em;
+    padding-bottom: 0.9em;
+    padding-right: 4.6em;
+    padding-left: 4.6em;
+}
+#link2 {
+    text-decoration: none;
+    color: white;
+    padding-top: 0.9em;
+    padding-bottom: 0.9em;
+    padding-right: 3.1em;
+    padding-left: 3em;
+}
+#link3 {
+    text-decoration: none;
+    color: white;
+    padding-top: 0.9em;
+    padding-bottom: 0.9em;
+    padding-right: 1.6em;
+    padding-left: 1.6em;
+}
+
+.button {
+    text-decoration: none;
+    box-shadow: 0 5px 0 darkred;
+    padding: 1em 1.5em;
+    color: white;
+    background-color: red;
+}
+
+.button:hover {
+    background-color: #A22227;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+ul li {
+    margin: 45px;
+}
