@@ -36,4 +36,9 @@ public class HomeController {
     public String contractsMenu(){
         return "home/contractsMenu";
     }
+
+    @GetMapping("/carCreate")
+    public String carCreate() {
+        return "home/carCreate";
+    }
 }

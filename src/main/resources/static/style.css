@@ -19,6 +19,13 @@ body {
     margin: auto;
 }
 
+#home {
+    height: 200px;
+    width: 1000px;
+    margin: auto;
+    display: block;
+}
+
 .main-header {
     text-align: center;
     color: #E12121;
@@ -45,7 +52,7 @@ body {
 
 .content-table {
     border-collapse: collapse;
-    margin: auto;
+    margin: 20px auto;
     font-size: 0.7em;
     min-width: 400px;
 }
@@ -61,15 +68,15 @@ body {
 
 .content-table tbody tr {
     text-align: center;
-    color: black;
+    color: white;
 }
 
 .content-table tbody tr:nth-child(even) {
-    background-color:#e8dcdc;
+    background-color:#2e2e2e;
 }
 
 .content-table tbody tr:nth-child(odd) {
-    background-color: white;
+    background-color: #4a4a4a;
 }
 
 .button-area {
@@ -82,9 +89,49 @@ body {
     line-height: 60px;
 }
 
+.button-area2 {
+    box-shadow: 0 5px 0 darkred;
+    background-color: red;
+    height: 30px;
+    width: 139px;
+    text-align: center;
+    margin: 15px 15px;
+    line-height: 30px;
+    float: left;
+}
+
 .button-area:hover {
     background-color: #A22227;
 }
+
+.button-area2:hover {
+    background-color: #A22227;
+}
+
+.button-area2 a {
+    text-decoration: none;
+    color: white;
+}
+
+#createCar {
+    padding: 0.2em 1.6em;
+}
+
+#updateCar {
+    padding: 0.2em 1.6em;
+    padding-right: 1.4em;
+}
+
+#deleteCar {
+    padding: 0.2em 1.8em;
+    padding-right: 1.5em;
+}
+
+#searchCar {
+    padding: 0.2em 1.6em;
+    padding-right: 1.4em;
+}
+
 #link1 {
     text-decoration: none;
     color: white;
@@ -130,4 +177,32 @@ ul {
 
 ul li {
     margin: 45px;
+}
+
+.create-form {
+    text-align: center;
+    font-size: 0.8em;
+    margin: auto;
+}
+
+.create-form .label-input {
+    padding-bottom: 15px;
+
+}
+
+.create-form .radiogroup {
+    padding-bottom: 15px;
+}
+
+.create-form input {
+    padding: 8px;
+}
+
+.create-form input[type="submit"] {
+    padding: 15px 30px;
+    border: none;
+    box-shadow: 0 5px 0 darkred;
+    background-color: red;
+    font-size: 1em;
+    float: center;
 }
