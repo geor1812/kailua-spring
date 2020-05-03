@@ -19,6 +19,13 @@ body {
     margin: auto;
 }
 
+#home {
+    height: 200px;
+    width: 1000px;
+    margin: auto;
+    display: block;
+}
+
 .main-header {
     text-align: center;
     color: #E12121;
