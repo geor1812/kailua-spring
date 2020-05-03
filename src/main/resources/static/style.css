@@ -45,17 +45,13 @@ body {
 
 .content-table {
     border-collapse: collapse;
-    margin: auto;
+    margin: 20px auto;
     font-size: 0.7em;
     min-width: 400px;
 }
 
 .content-table thead tr {
     background-color: red;
-}
-
-.content-table thead th {
-    color: white;
 }
 
 .content-table th,
@@ -86,9 +82,49 @@ body {
     line-height: 60px;
 }
 
+.button-area2 {
+    box-shadow: 0 5px 0 darkred;
+    background-color: red;
+    height: 30px;
+    width: 139px;
+    text-align: center;
+    margin: 15px 15px;
+    line-height: 30px;
+    float: left;
+}
+
 .button-area:hover {
     background-color: #A22227;
 }
+
+.button-area2:hover {
+    background-color: #A22227;
+}
+
+.button-area2 a {
+    text-decoration: none;
+    color: white;
+}
+
+#createCar {
+    padding: 0.2em 1.6em;
+}
+
+#updateCar {
+    padding: 0.2em 1.6em;
+    padding-right: 1.4em;
+}
+
+#deleteCar {
+    padding: 0.2em 1.8em;
+    padding-right: 1.5em;
+}
+
+#searchCar {
+    padding: 0.2em 1.6em;
+    padding-right: 1.4em;
+}
+
 #link1 {
     text-decoration: none;
     color: white;
