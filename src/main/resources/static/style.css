@@ -54,6 +54,10 @@ body {
     background-color: red;
 }
 
+.content-table thead th {
+    color: white;
+}
+
 .content-table th,
 .content-table td {
     padding: 5px;
@@ -61,15 +65,15 @@ body {
 
 .content-table tbody tr {
     text-align: center;
-    color: black;
+    color: white;
 }
 
 .content-table tbody tr:nth-child(even) {
-    background-color:#e8dcdc;
+    background-color:#2e2e2e;
 }
 
 .content-table tbody tr:nth-child(odd) {
-    background-color: white;
+    background-color: #4a4a4a;
 }
 
 .button-area {
