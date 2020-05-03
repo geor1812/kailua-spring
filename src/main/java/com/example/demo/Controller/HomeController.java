@@ -26,4 +26,14 @@ public class HomeController {
         model.addAttribute("cars",carList);
         return "home/carMenu";
     }
+
+    @GetMapping("/customerMenu")
+    public String customerMenu(){
+        return "home/customerMenu";
+    }
+
+    @GetMapping("/contractsMenu")
+    public String contractsMenu(){
+        return "home/contractsMenu";
+    }
 }
