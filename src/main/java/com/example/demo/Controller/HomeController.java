@@ -15,7 +15,16 @@ public class HomeController {
 
     @GetMapping("/carMenu")
     public String carMenu(Model model) {
-
         return "home/carMenu";
+    }
+
+    @GetMapping("/customerMenu")
+    public String customerMenu(){
+        return "home/customerMenu";
+    }
+
+    @GetMapping("/contractsMenu")
+    public String contractsMenu(){
+        return "home/contractsMenu";
     }
 }
