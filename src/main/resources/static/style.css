@@ -30,6 +30,11 @@ body {
     overflow: hidden;
 }
 
+.container h2 {
+    color: #dbbdbd;
+    text-align: center;
+}
+
 .main-footer .container{
     margin-top: 15px;
     font-size: 15px;
