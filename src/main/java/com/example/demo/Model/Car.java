@@ -93,4 +93,19 @@ public class Car {
     public void setFuel_type(String fuel_type) {
         this.fuel_type = fuel_type;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "car_id=" + car_id +
+                ", reg_nr='" + reg_nr + '\'' +
+                ", reg_date='" + reg_date + '\'' +
+                ", odometer=" + odometer +
+                ", model_id=" + model_id +
+                ", model_group=" + model_group +
+                ", brand='" + brand + '\'' +
+                ", model_details='" + model_details + '\'' +
+                ", fuel_type='" + fuel_type + '\'' +
+                '}';
+    }
 }
