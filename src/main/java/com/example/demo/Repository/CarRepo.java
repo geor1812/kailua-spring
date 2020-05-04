@@ -19,7 +19,8 @@ public class CarRepo {
     JdbcTemplate template;
 
     public List<Car> readAll() {
-        String sqlQuery = "SELECT car.car_id, car.reg_nr, car.reg_date, car.odometer, car.model_id, model.model_group, model.brand, model.model_details, model.fuel_type \n" +
+        String sqlQuery = "SELECT car.car_id, car.reg_nr, car.reg_date, car.odometer," +
+                " car.model_id, model.model_group, model.brand, model.model_details, model.fuel_type \n" +
                 "FROM car\n" +
                 "INNER JOIN model ON car.model_id = model.model_id\n" +
                 "ORDER BY car_id";
@@ -41,8 +42,6 @@ public class CarRepo {
             return ps;
         }, keyHolder);
 
-        System.out.println("Model ID:" + keyHolder.getKey());
-
         String carQuery = "INSERT INTO car\n" +
                 "(reg_nr, reg_date, odometer, model_id)\n" +
                 "VALUES(?, ?, ?, ?)";
@@ -51,9 +50,13 @@ public class CarRepo {
     }
 
     public Car findCarById(int id){
-        String sql = "SELECT * FROM car WHERE car_id = ?";
+        String sqlQuery = "SELECT car.car_id, car.reg_nr, car.reg_date, car.odometer," +
+                " car.model_id, model.model_group, model.brand, model.model_details, model.fuel_type \n" +
+                "FROM car\n" +
+                "INNER JOIN model ON car.model_id = model.model_id\n" +
+                "WHERE car_id = ?";
         RowMapper<Car> rowMapper = new BeanPropertyRowMapper<>(Car.class);
-        Car c = template.queryForObject(sql, rowMapper, id);
+        Car c = template.queryForObject(sqlQuery, rowMapper, id);
         return c;
     }
 

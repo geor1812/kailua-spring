@@ -56,17 +56,12 @@ public class HomeController {
     public String viewDetails(@PathVariable("car_id") int car_id, Model model){
         model.addAttribute("car", carService.findCarById(car_id));
         return "home/viewDetails";
-
     }
 
     @GetMapping("/delete/{car_id}")
     public String delete(@PathVariable("car_id") int car_id){
         boolean deleted = carService.deleteCar(car_id);
-        if(deleted){
-            return "redirect:/carMenu";
-        } else{
-            return "redirect:/carMenu";
-        }
+        return "redirect:/carMenu";
     }
 
     @GetMapping("/updateCar/{car_id}")
@@ -81,5 +76,4 @@ public class HomeController {
         carService.updateCar(car.getCar_id(), car);
         return "redirect:/carMenu";
     }
-
 }

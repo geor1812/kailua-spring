@@ -35,6 +35,7 @@ body {
     width: 60%;
     margin: auto;
     overflow: hidden;
+    text-align: center;
 }
 
 .container h2 {
@@ -95,18 +96,16 @@ body {
     height: 30px;
     width: 139px;
     text-align: center;
-    margin: 15px 15px;
+    margin: auto;
+    margin-bottom: 15px;
     line-height: 30px;
-    float: left;
 }
-.btn-viewDetails{
+.btn {
     background-color: red;
     padding: 10px;
-}
+    border: none;
+    box-shadow: 0 3px 0 darkred;
 
-.btn-delete{
-    background-color: red;
-    padding: 10px;
 }
 
 .button-area:hover {

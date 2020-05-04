@@ -2,15 +2,42 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Update Car</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
 </head>
 <body>
-    <h1>Edit car</h1>
+<div class="body-box">
+    <header class="main-header">
+        <div class="container">
+            <h1>Kailua Car Rental</h1>
+        </div>
+    </header>
 
-    <form action="/updateCar" method="post">
-        <input type="number" name="odometer" th:value="@{car.odometer}">
-        <input type="submit" value="Save changes">
-    </form>
+    <section class="showcase">
+        <a href="/" id="home"></a>
+    </section>
 
+    <section class="main-section">
+        <div class="container">
+            <h2>Edit car</h2>
+
+            <form class="create-form" action="/updateCar" method="post">
+                <div class="label-input">
+                    <label for="odometer">Enter the new odometer information</label><br>
+                    <input type="number" id="odometer" name="odometer" th:value="${car.odometer}" required >
+                </div>
+                <input type="submit" value="Save changes">
+            </form>
+
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>Group 5<br>Remi Asher Foss, Max Hektor Balling Merrild, Johan Christoffer Bille, George Ursachi</p>
+        </div>
+    </footer>
+
+</div>
 </body>
 </html>
