@@ -73,6 +73,7 @@ public class HomeController {
 
     @PostMapping("/updateCar")
     public String updateCar(@ModelAttribute Car car){
+        //How to get the car ID from the car in @GetMapping?
         carService.updateCar(car.getCar_id(), car);
         return "redirect:/carMenu";
     }

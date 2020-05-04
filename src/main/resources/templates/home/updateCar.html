@@ -20,7 +20,7 @@
     <section class="main-section">
         <div class="container">
             <h2>Edit car</h2>
-
+            <p>ID: <span style="color: #dbbdbd" th:text="${car.car_id}" name="car_id" /></p>
             <form class="create-form" action="/updateCar" method="post">
                 <div class="label-input">
                     <label for="odometer">Enter the new odometer information</label><br>
