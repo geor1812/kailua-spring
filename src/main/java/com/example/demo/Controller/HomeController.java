@@ -59,4 +59,27 @@ public class HomeController {
 
     }
 
+    @GetMapping("/delete/{car_id}")
+    public String delete(@PathVariable("car_id") int car_id){
+        boolean deleted = carService.deleteCar(car_id);
+        if(deleted){
+            return "redirect:/carMenu";
+        } else{
+            return "redirect:/carMenu";
+        }
+    }
+
+    @GetMapping("/updateCar/{car_id}")
+    public String updateCar(@PathVariable("car_id") int car_id, Model model){
+        model.addAttribute("car", carService.findCarById(car_id));
+        return "home/updateCar";
+
+    }
+
+    @PostMapping("/updateCar")
+    public String updateCar(@ModelAttribute Car car){
+        carService.updateCar(car.getCar_id(), car);
+        return "redirect:/carMenu";
+    }
+
 }

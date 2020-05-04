@@ -104,6 +104,11 @@ body {
     padding: 10px;
 }
 
+.btn-delete{
+    background-color: red;
+    padding: 10px;
+}
+
 .button-area:hover {
     background-color: #A22227;
 }

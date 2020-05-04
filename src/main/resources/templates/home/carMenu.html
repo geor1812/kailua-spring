@@ -63,7 +63,14 @@
                         <td>
                             <a th:href="@{'/viewDetails/'+${car.car_id}}">
                                 <button class="btn-viewDetails", id="btn-viewDetails">View details</button>
+                            </a>
 
+                            <a th:href="@{'/delete/'+${car.car_id}}">
+                                <button class="btn-delete", id="btn-delete">Delete car</button>
+                            </a>
+
+                            <a th:href="@{'/updateCar/'+${car.car_id}}">
+                                <button class="btn-delete", id="btn-update">Edit car</button>
                             </a>
                         </td>
 

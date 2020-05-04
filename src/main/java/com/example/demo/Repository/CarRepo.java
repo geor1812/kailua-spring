@@ -56,4 +56,15 @@ public class CarRepo {
         Car c = template.queryForObject(sql, rowMapper, id);
         return c;
     }
+
+    public boolean deleteCar(int id){
+        String sql = "DELETE FROM car WHERE car_id = ?";
+        return template.update(sql, id) < 0;
+    }
+
+    public Car updateCar(int id, Car c){
+        String sql = "UPDATE car SET odometer = ? WHERE car_id = ?";
+        template.update(sql, c.getOdometer(), c.getCar_id());
+        return null;
+    }
 }

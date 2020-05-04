@@ -23,4 +23,12 @@ public class CarService {
     public Car findCarById(int id){
         return carRepo.findCarById(id);
     }
+
+    public boolean deleteCar(int id){
+        return carRepo.deleteCar(id);
+    }
+
+    public Car updateCar(int id, Car c){
+        return carRepo.updateCar(id, c);
+    }
 }
