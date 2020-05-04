@@ -23,14 +23,14 @@
         </div>
 
         <div class="container">
-            <form class="create-form">
+            <form class="create-form" action="/carCreate" method="post">
                 <div class="radiogroup">
                     <label>Choose the car type</label><br>
-                    <input type="radio" id="1" name="model_group" required>
+                    <input type="radio" id="1" name="model_group" value="1" required>
                     <label for="1">Luxury</label><br>
-                    <input type="radio" id="2" name="model_group" required>
+                    <input type="radio" id="2" name="model_group" value="2" required>
                     <label for="2">Family</label><br>
-                    <input type="radio" id="3" name="model_group" required>
+                    <input type="radio" id="3" name="model_group" value="3" required>
                     <label for="3">Sport</label><br>
                 </div>
 
@@ -46,11 +46,11 @@
 
                 <div class="radiogroup">
                     <label>Choose the fuel type</label><br>
-                    <input type="radio" id="e85" name="fuel_type" required>
+                    <input type="radio" id="e85" name="fuel_type" value="E85 Gasoline" required>
                     <label for="e85">E85 Gasoline</label><br>
-                    <input type="radio" id="90+" name="fuel_type" required>
+                    <input type="radio" id="90+" name="fuel_type" value="90+ Octane Gasoline"  required>
                     <label for="90+">90+ Octane Gasoline</label><br>
-                    <input type="radio" id="diesel" name="fuel_type" required>
+                    <input type="radio" id="diesel" name="fuel_type" value="Diesel" required>
                     <label for="diesel">Diesel</label><br>
                 </div>
 

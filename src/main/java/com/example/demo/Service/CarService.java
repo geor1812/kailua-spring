@@ -15,4 +15,8 @@ public class CarService {
     public List<Car> readAll() {
         return carRepo.readAll();
     }
+
+    public Car create(Car c) {
+        return carRepo.create(c);
+    }
 }
