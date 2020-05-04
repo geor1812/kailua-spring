@@ -19,4 +19,8 @@ public class CarService {
     public Car create(Car c) {
         return carRepo.create(c);
     }
+
+    public Car findCarById(int id){
+        return carRepo.findCarById(id);
+    }
 }

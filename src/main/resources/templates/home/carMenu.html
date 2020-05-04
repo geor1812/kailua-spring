@@ -48,6 +48,8 @@
                         <th>Registration Number</th>
                         <th>Registration Date</th>
                         <th>Odometer</th>
+                        <th></th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -58,10 +60,19 @@
                         <td th:text="${car.reg_nr}" />
                         <td th:text="${car.reg_date}" />
                         <td th:text="${car.odometer}" />
+                        <td>
+                            <a th:href="@{'/viewDetails/'+${car.car_id}}">
+                                <button class="btn-viewDetails", id="btn-viewDetails">View details</button>
+
+                            </a>
+                        </td>
+
                     </tr>
                     </tbody>
                 </table>
             </div>
+
+
         </section>
 
         <footer class="main-footer">

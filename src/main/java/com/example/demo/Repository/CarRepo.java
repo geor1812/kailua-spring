@@ -49,4 +49,11 @@ public class CarRepo {
         template.update(carQuery, c.getReg_nr(), c.getReg_date(), c.getOdometer(), keyHolder.getKey());
         return null;
     }
+
+    public Car findCarById(int id){
+        String sql = "SELECT * FROM car WHERE car_id = ?";
+        RowMapper<Car> rowMapper = new BeanPropertyRowMapper<>(Car.class);
+        Car c = template.queryForObject(sql, rowMapper, id);
+        return c;
+    }
 }
