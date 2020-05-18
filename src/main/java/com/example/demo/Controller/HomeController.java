@@ -76,10 +76,22 @@ public class HomeController {
         return "home/viewDetails";
     }
 
+    @GetMapping("/viewCustomerDetails/{customer_id}")
+    public String viewCustomerDetails(@PathVariable("customer_id") int customer_id, Model model){
+        model.addAttribute("customer", customerService.findCustomerById(customer_id));
+        return "home/viewCustomerDetails";
+    }
+
     @GetMapping("/delete/{car_id}")
     public String delete(@PathVariable("car_id") int car_id){
         boolean deleted = carService.deleteCar(car_id);
         return "redirect:/carMenu";
+    }
+
+    @GetMapping("/deleteCustomer/{customer_id}")
+    public String deleteCustomer(@PathVariable("customer_id") int customer_id){
+        boolean deleted = customerService.deleteCustomer(customer_id);
+        return "redirect:/customerMenu";
     }
 
     @GetMapping("/updateCar/{car_id}")

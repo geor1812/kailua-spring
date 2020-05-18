@@ -57,11 +57,27 @@ public class CustomerRepo {
     }
 
     public Customer findCustomerById(int id){
-        return null;
+        String sqlQuery = "SELECT customer.customer_id, customer.first_name, customer.last_name, customer.phone_no, customer.email,\n" +
+                "customer.licence_no, customer.address_id, licence.licence_date, address.address_details, address.zip,\n" +
+                "address.city\n" +
+                "FROM customer\n" +
+                "INNER JOIN address ON customer.address_id = address.address_id\n" +
+                "INNER JOIN licence ON customer.licence_no = licence.licence_no\n" +
+                "WHERE customer_id = ?";
+        RowMapper<Customer> rowMapper = new BeanPropertyRowMapper<>(Customer.class);
+        Customer c = template.queryForObject(sqlQuery, rowMapper, id);
+        return c;
     }
 
     public boolean deleteCustomer(int id){
-        return false;
+        Customer c = findCustomerById(id);
+        String sqlQuery1 = "DELETE FROM customer WHERE customer_id = ?";
+        String sqlQuery2 = "DELETE FROM address WHERE address_id = ?";
+        String sqlQuery3 = "DELETE FROM licence WHERE licence_no = ?";
+        template.update(sqlQuery1, c.getCustomer_id());
+        template.update(sqlQuery2, c.getAddress_id());
+        template.update(sqlQuery3, c.getLicence_no());
+        return true;
     }
 
     public Customer updateCustomer(int id, Customer c){
