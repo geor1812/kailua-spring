@@ -1,10 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Create Customer</title>
+    <link rel="stylesheet" type="text/css" th:href="@{style.css}"/>
 </head>
 <body>
-$END$
+<div class="body-box">
+    <header class="main-header">
+        <div class="container">
+            <h1>Kailua Car Rental</h1>
+        </div>
+    </header>
+
+    <section class="showcase">
+        <a href="/" id="home"></a>
+    </section>
+
+    <section class="main-section">
+        <div class="container">
+            <h2>Create a new customer</h2>
+        </div>
+
+        <div class="container">
+            <form class="create-form" action="/customerCreate" method="post">
+                <div class="label-input">
+                    <label for="first_name">First Name</label><br>
+                    <input type="text" id="first_name" name="first_name" required>
+                </div>
+
+                <div class="label-input">
+                    <label for="last_name">Last Name</label><br>
+                    <input type="text" id="last_name" name="last_name" required>
+                </div>
+
+                <div class="label-input">
+                    <label for="licence_no">Driver's Licence Number</label><br>
+                    <input type="number" id="licence_no" name="licence_no" required>
+                </div>
+
+                <div class="label-input">
+                    <label for="licence_date">Driver's Licence Acquisition Date</label><br>
+                    <input type="date" id="licence_date" name="licence_date" required>
+                </div>
+
+                <div class="label-input">
+                    <label for="address_details">Address</label><br>
+                    <input type="text" id="address_details" name="address_details" required>
+                </div>
+
+                <div class="label-input">
+                    <label for="city">City</label><br>
+                    <input type="text" id="city" name="city" required>
+                </div>
+
+                <div class="label-input">
+                    <label for="zip">Zip Code</label><br>
+                    <input type="number" id="zip" name="zip" required>
+                </div>
+
+                <div class="label-input">
+                    <label for="phone_no">Phone Number</label><br>
+                    <input type="number" id="phone_no" name="phone_no" required>
+                </div>
+
+                <div class="label-input">
+                    <label for="email">Email</label><br>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <input type="submit" value="Create">
+            </form>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>Group 5<br>Remi Asher Foss, Max Hektor Balling Merrild, Johan Christoffer Bille, George Ursachi</p>
+        </div>
+    </footer>
+
+</div>
 </body>
-</html>

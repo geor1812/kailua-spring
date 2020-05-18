@@ -1,7 +1,9 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Model.Car;
+import com.example.demo.Model.Customer;
 import com.example.demo.Service.CarService;
+import com.example.demo.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,8 @@ import java.util.List;
 public class HomeController {
     @Autowired
     CarService carService;
+    @Autowired
+    CustomerService customerService;
 
     @GetMapping("/")
     public String index() {
@@ -32,7 +36,9 @@ public class HomeController {
     }
 
     @GetMapping("/customerMenu")
-    public String customerMenu(){
+    public String customerMenu(Model model){
+        List<Customer> customerList =customerService.readAll();
+        model.addAttribute("customers", customerList);
         return "home/customerMenu";
     }
 
@@ -46,10 +52,22 @@ public class HomeController {
         return "home/carCreate";
     }
 
+    @GetMapping("/customerCreate")
+    public String customerCreate() {
+        return "home/customerCreate";
+    }
+
     @PostMapping("/carCreate")
     public String carCreate(@ModelAttribute Car car) {
         carService.create(car);
         return "redirect:/carMenu";
+    }
+
+    @PostMapping("/customerCreate")
+    public String customerCreate(@ModelAttribute Customer customer) {
+        System.out.println("AAAAAAAAAAAAAAAZ: " + customer.getEmail());
+        customerService.create(customer);
+        return "redirect:/customerMenu";
     }
 
     @GetMapping("/viewDetails/{car_id}")
