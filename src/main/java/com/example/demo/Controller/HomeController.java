@@ -2,8 +2,10 @@ package com.example.demo.Controller;
 
 import com.example.demo.Model.Car;
 import com.example.demo.Model.Customer;
+import com.example.demo.Model.Rental;
 import com.example.demo.Service.CarService;
 import com.example.demo.Service.CustomerService;
+import com.example.demo.Service.RentalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,8 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.context.request.WebRequest;
-import retrofit2.http.Path;
 
 import java.util.List;
 
@@ -22,6 +22,8 @@ public class HomeController {
     CarService carService;
     @Autowired
     CustomerService customerService;
+    @Autowired
+    RentalService rentalService;
 
     @GetMapping("/")
     public String index() {
@@ -43,9 +45,11 @@ public class HomeController {
         return "home/customerMenu";
     }
 
-    @GetMapping("/contractsMenu")
-    public String contractsMenu(){
-        return "home/contractsMenu";
+    @GetMapping("/rentalMenu")
+    public String rentalMenu(Model model){
+        List<Rental> rentalList = rentalService.readAll();
+        model.addAttribute("rentals", rentalList);
+        return "home/rentalMenu";
     }
 
     @GetMapping("/carCreate")
