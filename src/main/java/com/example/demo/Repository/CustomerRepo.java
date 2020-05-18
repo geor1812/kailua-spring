@@ -81,6 +81,13 @@ public class CustomerRepo {
     }
 
     public Customer updateCustomer(int id, Customer c){
+        Customer customer = findCustomerById(id);
+        String sqlQuery1 = "UPDATE address SET address_details = ?, city = ?, zip = ? WHERE address_id = ?";
+        String sqlQuery2 = "UPDATE customer SET first_name = ?, last_name = ?, phone_no = ?, email = ? WHERE customer_id = ?";
+        String sqlQuery3 = "UPDATE licence SET licence_no = ?, licence_date = ? WHERE licence_no = ?";
+        template.update(sqlQuery1, c.getAddress_details(), c.getCity(), c.getZip(), customer.getAddress_id());
+        template.update(sqlQuery3, c.getLicence_no(), c.getLicence_date(), customer.getLicence_no());
+        template.update(sqlQuery2, c.getFirst_name(), c.getLast_name(), c.getPhone_no(), c.getEmail(), customer.getCustomer_id());
         return null;
     }
 }

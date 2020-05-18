@@ -12,6 +12,17 @@ import java.util.List;
 public class CustomerService {
     @Autowired
     CustomerRepo customerRepo;
+
+    public int getWorkingID() {
+        return workingID;
+    }
+
+    public void setWorkingID(int workingID) {
+        this.workingID = workingID;
+    }
+
+    private int workingID;
+
     public List<Customer> readAll() {
         return customerRepo.readAll();
     }

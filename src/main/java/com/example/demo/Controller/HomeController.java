@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
+import retrofit2.http.Path;
 
 import java.util.List;
 
@@ -65,7 +66,6 @@ public class HomeController {
 
     @PostMapping("/customerCreate")
     public String customerCreate(@ModelAttribute Customer customer) {
-        System.out.println("AAAAAAAAAAAAAAAZ: " + customer.getEmail());
         customerService.create(customer);
         return "redirect:/customerMenu";
     }
@@ -105,8 +105,21 @@ public class HomeController {
     @PostMapping("/updateCar")
     public String updateCar(@ModelAttribute Car car){
         int id = carService.getWorkingID();
-        System.out.println("AAIIIIIDEEEEEEEEEEE: " + id);
         carService.updateCar(id, car);
         return "redirect:/carMenu";
+    }
+
+    @GetMapping("/updateCustomer/{customer_id}")
+    public String updateCustomer(@PathVariable("customer_id") int customer_id, Model model){
+        customerService.setWorkingID(customer_id);
+        model.addAttribute("customer", customerService.findCustomerById(customer_id));
+        return "home/updateCustomer";
+    }
+
+    @PostMapping("/updateCustomer")
+    public String updateCustomer(@ModelAttribute Customer customer){
+        int id = customerService.getWorkingID();
+        customerService.updateCustomer(id, customer);
+        return "redirect:/customerMenu";
     }
 }
