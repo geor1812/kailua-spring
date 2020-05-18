@@ -84,6 +84,7 @@ public class HomeController {
 
     @GetMapping("/updateCar/{car_id}")
     public String updateCar(@PathVariable("car_id") int car_id, Model model){
+        carService.setWorkingID(car_id);
         model.addAttribute("car", carService.findCarById(car_id));
         return "home/updateCar";
 
@@ -91,8 +92,9 @@ public class HomeController {
 
     @PostMapping("/updateCar")
     public String updateCar(@ModelAttribute Car car){
-        //How to get the car ID from the car in @GetMapping?
-        carService.updateCar(car.getCar_id(), car);
+        int id = carService.getWorkingID();
+        System.out.println("AAIIIIIDEEEEEEEEEEE: " + id);
+        carService.updateCar(id, car);
         return "redirect:/carMenu";
     }
 }

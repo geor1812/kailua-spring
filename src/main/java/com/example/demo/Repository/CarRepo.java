@@ -67,7 +67,7 @@ public class CarRepo {
 
     public Car updateCar(int id, Car c){
         String sql = "UPDATE car SET odometer = ? WHERE car_id = ?";
-        template.update(sql, c.getOdometer(), c.getCar_id());
+        template.update(sql, c.getOdometer(), id);
         return null;
     }
 }

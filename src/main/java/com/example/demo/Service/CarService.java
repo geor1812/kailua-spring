@@ -11,6 +11,15 @@ import java.util.List;
 public class CarService {
     @Autowired
     CarRepo carRepo;
+    private int workingID;
+
+    public int getWorkingID() {
+        return workingID;
+    }
+
+    public void setWorkingID(int workingID) {
+        this.workingID = workingID;
+    }
 
     public List<Car> readAll() {
         return carRepo.readAll();
