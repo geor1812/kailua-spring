@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Customer Menu</title>
+    <title>Choose Customer</title>
     <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
 </head>
 <body>
@@ -19,11 +19,8 @@
 
     <section class="main-section">
         <div class="container">
-            <h2>Customer Menu</h2>
-
-            <div class="button-area2">
-                <a href="/customerCreate" id="createCustomer">Create</a>
-            </div>
+            <h2>Create a rental contract</h2>
+            <p>Please choose the customer for which the contract will be created</p>
         </div>
 
         <div class="container">
@@ -47,19 +44,10 @@
                     <td th:text="${customer.phone_no}" />
                     <td th:text="${customer.email}" />
                     <td>
-                        <a th:href="@{'/viewCustomerDetails/'+${customer.customer_id}}">
-                            <button class="btn">Details</button>
-                        </a>
-
-                        <a th:href="@{'/deleteCustomer/'+${customer.customer_id}}">
-                            <button class="btn">Delete</button>
-                        </a>
-
-                        <a th:href="@{'/updateCustomer/'+${customer.customer_id}}">
-                            <button class="btn">Edit</button>
+                        <a th:href="@{'/chooseCar/'+${customer.customer_id}}">
+                            <button class="btn">Select</button>
                         </a>
                     </td>
-
                 </tr>
                 </tbody>
             </table>

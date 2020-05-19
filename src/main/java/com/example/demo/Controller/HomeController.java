@@ -45,6 +45,22 @@ public class HomeController {
         return "home/customerMenu";
     }
 
+    @GetMapping("/chooseCustomer")
+    public String chooseCustomer(Model model){
+        List<Customer> customerList =customerService.readAll();
+        model.addAttribute("customers", customerList);
+        return "home/chooseCustomer";
+    }
+
+    @GetMapping("/chooseCar/{customer_id}")
+    public String chooseCar(@PathVariable("customer_id") int customer_id, Model model)
+    {
+        customerService.setWorkingID(customer_id);
+        List<Car> carList = carService.readAll();
+        model.addAttribute("cars", carList);
+        return "home/chooseCar";
+    }
+
     @GetMapping("/rentalMenu")
     public String rentalMenu(Model model){
         List<Rental> rentalList = rentalService.readAll();
@@ -62,6 +78,12 @@ public class HomeController {
         return "home/customerCreate";
     }
 
+    @GetMapping("/rentalCreate/{car_id}")
+    public String rentalCreate(@PathVariable("car_id") int car_id) {
+        carService.setWorkingID(car_id);
+        return "home/rentalCreate";
+    }
+
     @PostMapping("/carCreate")
     public String carCreate(@ModelAttribute Car car) {
         carService.create(car);
@@ -72,6 +94,14 @@ public class HomeController {
     public String customerCreate(@ModelAttribute Customer customer) {
         customerService.create(customer);
         return "redirect:/customerMenu";
+    }
+
+    @PostMapping("/rentalCreate")
+    public String rentalCreate(@ModelAttribute Rental rental) {
+        rental.setCar_id(carService.getWorkingID());
+        rental.setCustomer_id(customerService.getWorkingID());
+        rentalService.create(rental);
+        return "redirect:/rentalMenu";
     }
 
     @GetMapping("/viewDetails/{car_id}")

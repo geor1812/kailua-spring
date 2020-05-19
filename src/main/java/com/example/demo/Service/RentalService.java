@@ -18,8 +18,8 @@ public class RentalService {
         return rentalRepo.readAll();
     }
 
-    public Rental create(Rental c) {
-        return rentalRepo.create(c);
+    public Rental create(Rental r) {
+        return rentalRepo.create(r);
     }
 
     public Rental findRentalById(int id) {
@@ -30,7 +30,7 @@ public class RentalService {
         return rentalRepo.deleteRental(id);
     }
 
-    public Rental updateRental(int id, Rental c) {
-        return rentalRepo.updateRental(id, c);
+    public Rental updateRental(int id, Rental r) {
+        return rentalRepo.updateRental(id, r);
     }
 }
