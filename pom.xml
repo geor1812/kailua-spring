@@ -67,13 +67,14 @@
           <resourceGroup>Technology1</resourceGroup>  
           <appName>kailua</appName>  
           <pricingTier>P1v2</pricingTier>  
-          <region>northeurope</region>  
+          <region>westeurope</region>
+		  <authType>azure_cli</authType>
+		  <subscriptionId>ea1948af-aa1d-4820-9b7c-025ef8cffc56</subscriptionId>
           <runtime> 
             <os>linux</os>  
             <javaVersion>jre8</javaVersion>  
             <webContainer>jre8</webContainer> 
           </runtime>  
-          <subscriptionId>${ea1948af-aa1d-4820-9b7c-025ef8cffc56}</subscriptionId>  
           <appSettings> 
             <property> 
               <name>JAVA_OPTS</name>  
