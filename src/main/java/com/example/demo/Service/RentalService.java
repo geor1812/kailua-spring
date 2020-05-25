@@ -1,8 +1,6 @@
 package com.example.demo.Service;
 
 import com.example.demo.Model.Rental;
-import com.example.demo.Model.Rental;
-import com.example.demo.Repository.RentalRepo;
 import com.example.demo.Repository.RentalRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +11,15 @@ import java.util.List;
 public class RentalService {
     @Autowired
     RentalRepo rentalRepo;
+    private int workingID;
+
+    public int getWorkingID() {
+        return workingID;
+    }
+
+    public void setWorkingID(int workingID) {
+        this.workingID = workingID;
+    }
 
     public List<Rental> readAll() {
         return rentalRepo.readAll();

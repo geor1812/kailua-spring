@@ -116,6 +116,16 @@ public class HomeController {
         return "home/viewCustomerDetails";
     }
 
+    @GetMapping("/viewRentalDetails/{rental_id}")
+    public String viewRentalDetails(@PathVariable("rental_id") int rental_id, Model rentalModel,
+                                    Model carModel, Model customerModel) {
+        Rental r = rentalService.findRentalById(rental_id);
+        rentalModel.addAttribute("rental", r);
+        carModel.addAttribute("car", carService.findCarById(r.getCar_id()));
+        customerModel.addAttribute("customer", customerService.findCustomerById(r.getCustomer_id()));
+        return "home/viewRentalDetails";
+    }
+
     @GetMapping("/delete/{car_id}")
     public String delete(@PathVariable("car_id") int car_id){
         boolean deleted = carService.deleteCar(car_id);
@@ -126,6 +136,12 @@ public class HomeController {
     public String deleteCustomer(@PathVariable("customer_id") int customer_id){
         boolean deleted = customerService.deleteCustomer(customer_id);
         return "redirect:/customerMenu";
+    }
+
+    @GetMapping("/deleteRental/{rental_id}")
+    public String deleteRental(@PathVariable("rental_id") int rental_id) {
+        boolean deleted = rentalService.deleteRental(rental_id);
+        return "redirect:/rentalMenu";
     }
 
     @GetMapping("/updateCar/{car_id}")
@@ -155,5 +171,19 @@ public class HomeController {
         int id = customerService.getWorkingID();
         customerService.updateCustomer(id, customer);
         return "redirect:/customerMenu";
+    }
+
+    @GetMapping("/updateRental/{rental_id}")
+    public String updateRental(@PathVariable("rental_id") int rental_id, Model model) {
+        rentalService.setWorkingID(rental_id);
+        model.addAttribute("rental", rentalService.findRentalById(rental_id));
+        return "home/updateRental";
+    }
+
+    @PostMapping("/updateRental")
+    public String updateRental(@ModelAttribute Rental rental) {
+        int id = rentalService.getWorkingID();
+        rentalService.updateRental(id, rental);
+        return "redirect:/rentalMenu";
     }
 }

@@ -30,14 +30,21 @@ public class RentalRepo {
     }
 
     public Rental findRentalById(int id) {
-        return null;
+        String sqlQuery = "SELECT * FROM rental WHERE rental_id = ?";
+        RowMapper<Rental> rowMapper = new BeanPropertyRowMapper<>(Rental.class);
+        return template.queryForObject(sqlQuery, rowMapper, id);
     }
 
     public boolean deleteRental(int id) {
-        return false;
+        String sql = "DELETE FROM rental WHERE rental_id = ?";
+        template.update(sql, id);
+        return true;
     }
 
     public Rental updateRental(int id, Rental r) {
+        String sql = "UPDATE rental SET start_date = ?, end_date = ?, max_km = ? " +
+                "WHERE rental_id = ?";
+        template.update(sql, r.getStart_date(), r.getEnd_date(), r.getMax_km(), id);
         return null;
     }
 }

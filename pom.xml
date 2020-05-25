@@ -21,7 +21,7 @@
     <dependency> 
       <groupId>org.springframework.boot</groupId>  
       <artifactId>spring-boot-starter-thymeleaf</artifactId> 
-    </dependency>
+    </dependency>  
     <dependency> 
       <groupId>org.springframework.boot</groupId>  
       <artifactId>spring-boot-starter-web</artifactId> 
@@ -49,12 +49,12 @@
     <dependency> 
       <groupId>org.springframework.boot</groupId>  
       <artifactId>spring-boot-starter-data-jpa</artifactId> 
-    </dependency>
-      <dependency>
-          <groupId>com.microsoft.azure</groupId>
-          <artifactId>azure-mgmt-batch</artifactId>
-          <version>1.29.0</version>
-      </dependency>
+    </dependency>  
+    <dependency> 
+      <groupId>com.microsoft.azure</groupId>  
+      <artifactId>azure-mgmt-batch</artifactId>  
+      <version>1.29.0</version> 
+    </dependency> 
   </dependencies>  
   <build> 
     <plugins> 
@@ -62,34 +62,35 @@
         <groupId>com.microsoft.azure</groupId>  
         <artifactId>azure-webapp-maven-plugin</artifactId>  
         <version>1.9.0</version>  
-        <configuration>
-          <schemaVersion>V2</schemaVersion>
-          <resourceGroup>Tech1</resourceGroup>
-          <appName>kailua</appName>
-          <pricingTier>P1v2</pricingTier>
-          <region>westeurope</region>
-          <runtime>
-            <os>linux</os>
-            <javaVersion>jre8</javaVersion>
-            <webContainer>jre8</webContainer>
-          </runtime>
-            <appSettings>
-                <property>
-                    <name>JAVA_OPTS</name>
-                    <value>-Dserver.port=80</value>
-                </property>
-            </appSettings>
-          <deployment>
-            <resources>
-              <resource>
-                <directory>${project.basedir}/target</directory>
-                <includes>
-                  <include>*.jar</include>
-                </includes>
-              </resource>
-            </resources>
-          </deployment>
-        </configuration>
+        <configuration> 
+          <schemaVersion>V2</schemaVersion>  
+          <resourceGroup>Technology1</resourceGroup>  
+          <appName>kailua</appName>  
+          <pricingTier>P1v2</pricingTier>  
+          <region>northeurope</region>  
+          <runtime> 
+            <os>linux</os>  
+            <javaVersion>jre8</javaVersion>  
+            <webContainer>jre8</webContainer> 
+          </runtime>  
+          <subscriptionId>${ea1948af-aa1d-4820-9b7c-025ef8cffc56}</subscriptionId>  
+          <appSettings> 
+            <property> 
+              <name>JAVA_OPTS</name>  
+              <value>-Dserver.port=80</value> 
+            </property> 
+          </appSettings>  
+          <deployment> 
+            <resources> 
+              <resource> 
+                <directory>${project.basedir}/target</directory>  
+                <includes> 
+                  <include>*.jar</include> 
+                </includes> 
+              </resource> 
+            </resources> 
+          </deployment> 
+        </configuration> 
       </plugin>  
       <plugin> 
         <groupId>org.springframework.boot</groupId>  
